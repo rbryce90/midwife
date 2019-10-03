@@ -2,6 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const massive = require("massive");
+const client = require("./controllers/client");
+const employees = require("./controllers/employees");
+const classes = require("./controllers/classes");
+const certification = require("./controllers/certification");
 const app = express();
 require("dotenv").config();
 
@@ -24,6 +28,14 @@ massive(process.env.CONNECTION_STRING).then(db => {
 });
 
 app.get("/", (req, res) => res.status(200).json("Working!!!!!!!"));
+
+app.get("/clients", client.getCustomers);
+
+app.get("/employees", employees.getEmployees);
+
+app.get("/classes", classes.getClasses);
+
+app.get("/certifications", certification.getCertification);
 
 const port = 4000;
 
