@@ -4,7 +4,7 @@ import '../styles/header.css'
 
 export default function MyHeader() {
   return (
-    <div>
+    <div className='my_header'>
       <MyMenu />
     </div>
   );

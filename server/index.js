@@ -29,13 +29,13 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 app.get("/", (req, res) => res.status(200).json("Working!!!!!!!"));
 
-app.get("/clients", client.getCustomers);
+app.get("/api/clients", client.getCustomers);
 
-app.get("/employees", employees.getEmployees);
+app.get("/api/employees", employees.getEmployees);
 
-app.get("/classes", classes.getClasses);
+app.get("/api/classes", classes.getClasses);
 
-app.get("/certifications", certification.getCertification);
+app.get("/api/certifications", certification.getCertification);
 
 const port = 4000;
 

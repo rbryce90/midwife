@@ -1,1 +1,1 @@
-select * from Classes;
+select * from Classes, Employees WHERE Classes.instructor=Employees.Employee_ID;

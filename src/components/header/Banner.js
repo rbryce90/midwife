@@ -1,9 +1,12 @@
-import React from 'react'
- 
+import React from "react";
+import { Container, Header } from "semantic-ui-react";
+
 export default function Banner() {
-    return (
-        <div className="banner">
-            This can be what ever you want
-        </div>
-    )
+  return (
+    <Container className="banner" fluid>
+      <Header as="h1" textAlign="center">
+        This can be what ever you want
+      </Header>
+    </Container>
+  );
 }
