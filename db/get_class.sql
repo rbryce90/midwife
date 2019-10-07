@@ -1,0 +1,1 @@
+select * from classes where class_id = $1;

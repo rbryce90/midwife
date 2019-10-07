@@ -1,1 +1,1 @@
-select * from Classes, Employees WHERE Classes.instructor=Employees.Employee_ID;
+select * from classes, users WHERE classes.instructor=users.user_id;

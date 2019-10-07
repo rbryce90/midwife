@@ -2,8 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const massive = require("massive");
-const client = require("./controllers/client");
-const employees = require("./controllers/employees");
+const employees = require("./controllers/users");
 const classes = require("./controllers/classes");
 const certification = require("./controllers/certification");
 const app = express();
@@ -29,12 +28,9 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 app.get("/", (req, res) => res.status(200).json("Working!!!!!!!"));
 
-app.get("/api/clients", client.getCustomers);
-
-app.get("/api/employees", employees.getEmployees);
-
+app.get("/api/users", employees.getEmployees);
 app.get("/api/classes", classes.getClasses);
-
+app.get("/api/class/:id", classes.getClass);
 app.get("/api/certifications", certification.getCertification);
 
 const port = 4000;
