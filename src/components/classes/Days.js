@@ -22,7 +22,6 @@ export default function Days(props) {
     arr.map((day, index) => {
       if (index < arr.length - 1) {
         newStr += day   + ' - '
-
       } else {
         newStr += day
       }

@@ -6,14 +6,15 @@ import Services from './services/Services'
 import Classes from './classes/Classes'
 import Contact from './contact/Contact'
 import OneClass from './classes/OneClass'
+import EmployeePage from './employee/EmployeePage';
 
 export class Routes extends Component {
     render() {
         return (
             <div className='Routes'>
-                
                 <Route path="/class/:class_id" component={OneClass} />
                 <Route path="/about" component={About} />
+                <Route path="/teammember/:id" component={EmployeePage} />
                 <Route path="/classes" component={Classes} />
                 <Route path="/services" component={Services} />
                 <Route path="/contact" component={Contact} />

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import day from "./Days";
+import Days from "./Days";
 import { Header, Container } from "semantic-ui-react";
+import TeamMember from "../employee/TeamMember";
 
 export class OneClass extends Component {
   constructor() {
@@ -25,22 +26,36 @@ export class OneClass extends Component {
     const { oneClass } = this.state;
     const oneClassMapped = oneClass.map(theClass => {
       return (
-        <Container fluid>
-          <Header as="h1" textAlign="center">
+        <Container fluid className="one_class">
+          <Header className="no_margin" as="h1" textAlign="center">
             {" "}
             {theClass.name}{" "}
           </Header>
-          <Header as="h3" style={{ color: "black" }} textAlign="center">
+          <Header
+            className="no_margin"
+            as="h3"
+            style={{ color: "black" }}
+            textAlign="center"
+          >
             {theClass.start_date} - {theClass.end_date}
           </Header>
-          <Header as="h3" style={{ color: "black" }} textAlign="center">
-            {theClass.start_class}{theClass.start_am_pm} - {theClass.end_class}{theClass.end_am_pm}
+          <Header
+            className="no_margin"
+            as="h3"
+            style={{ color: "black" }}
+            textAlign="center"
+          >
+            {theClass.start_class}
+            {theClass.start_am_pm} - {theClass.end_class}
+            {theClass.end_am_pm}
           </Header>
+          <Days theDays={theClass.days} />
           <p>{theClass.description}</p>
+          <TeamMember teamMember={theClass.instructor} />
         </Container>
       );
     });
-    return <div>{oneClassMapped}</div>;
+    return <div className='one_class_div'>{oneClassMapped}</div>;
   }
 }
 

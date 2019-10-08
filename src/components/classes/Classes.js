@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import { Header, Segment, Divider, Image, Card, Container } from "semantic-ui-react";
+import {
+  Header,
+  Segment,
+  Divider,
+  Image,
+  Card,
+  Container
+} from "semantic-ui-react";
 import axios from "axios";
 import Days from "./Days";
 import "../styles/classes.css";
 import { Link } from "react-router-dom";
+import EmployeeCard from "../EmployeeCard";
 
 export class Classes extends Component {
   constructor() {
@@ -35,29 +43,31 @@ export class Classes extends Component {
             to={`/class/${el.class_id}`}
           >
             <Container>
-              <Header as="h2" >
+              <Header as="h1" style={{ margin: "0" }}>
                 {el.name}
               </Header>
-             
-              <Header as="h2" style={{ color: "black" }} floated='left'>
+
+              <Header
+                as="h2"
+                style={{ color: "black", margin: "0" }}
+                floated="left"
+              >
                 {el.start_date} - {el.end_date} at {el.start_class}
                 {el.start_am_pm} - {el.end_class}
-                {el.end_am_pm} 
+                {el.end_am_pm}
               </Header>
-              <Header as="h2" style={{ color: "black" }} floated='right' >
-              <Days theDays={el.days} />
+              <Header as="h2" style={{ color: "black" }} floated="right">
+                <Days theDays={el.days} />
               </Header>
-             
-              </Container>
+            </Container>
 
             <Divider clearing />
             <div style={{ display: "flex" }}>
-              <Card style={{ marginRight: "10px" }}>
-                <Image src={require("../../media/nophoto.png")} />
-                <Card.Content>
-                  <Card.Header>{el.first_name}</Card.Header>
-                </Card.Content>
-              </Card>
+              <EmployeeCard
+                firstName={el.first_name}
+                imageSrc={require("../../media/nophoto.png")}
+                description={el.description}
+              />
               <p style={{ float: "none", color: "black" }}>{el.description}</p>
             </div>
           </Link>

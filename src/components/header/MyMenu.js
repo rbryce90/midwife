@@ -11,8 +11,8 @@ export default class MyMenu extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu className="violet">
-        <Menu.Item name="logo">
+      <Menu inverted>
+        <Menu.Item name="logo" header>
           <h1>Logo</h1>
         </Menu.Item>
         <Link to="/">
@@ -60,7 +60,23 @@ export default class MyMenu extends Component {
             Contact
           </Menu.Item>
         </Link>
-        <Menu.Menu position='right'>
+        <Menu.Menu position="right">
+          <Menu.Item
+            name="admin"
+            active={activeItem === "admin"}
+            onClick={this.handleItemClick}
+            postion="right"
+          >
+            Admin
+          </Menu.Item>
+          <Menu.Item
+            name="account"
+            active={activeItem === "account"}
+            onClick={this.handleItemClick}
+            postion="right"
+          >
+            Account
+          </Menu.Item>
           <Menu.Item
             name="login"
             active={activeItem === "login"}
